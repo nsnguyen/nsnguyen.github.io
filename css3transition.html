@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "utf-8">
+    <title>Getting Familiar with CSS3 transition</title>
+    <link rel = "stylesheet" href="css/games/css3flip.css" />
+</head>
+<body>
+<header>
+    <h1>Getting Faimiliar with CSS 3 Transition</h1>
+</header>
+
+<section id="game">
+    <div id ="cards">
+        <div class="card">
+            <div class="face front"></div>
+            <div class="face back cardAK"></div>
+        </div>
+
+        <div class="card">
+            <div class = "face front"></div>
+            <div class ="face back cardAQ"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>This is an example of transition cards</p>
+</footer>
+
+<script src="js/vendor/jquery-1.11.0.min.js"></script>
+<script>
+$(function(){
+    $("#cards").children().each(function(index){
+        //listen the click event on each card DIV element
+        $(this).click(function(){
+            //add the class "card-flipped".
+            //the browser will animate the styles between current state and card-flipped state.
+            $(this).toggleClass("card-flipped");
+        });
+    });
+});
+
+
+</script>
+</body>
+</html>

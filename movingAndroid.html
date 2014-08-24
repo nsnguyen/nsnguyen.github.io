@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>It's a Moving Android!</title>
+    </head>
+    <body>
+         <img id="robot" alt ="robot" src="img/Droidgif.gif" />
+        <p>Click Start button to start moving the android across the screen!</p>
+        <input type="button" value="Start" id="button" onclick="move();" />
+            <p id="imgPixel">0 px 0 px</p>
+        <script>
+            window.onload = init; //required to initalize init function
+            var imgRobot = null;
+            var moving = false;
+            var timer = null;
+            var imgPixel = null;
+
+            function init() { //function to initialize on window.onload
+                imgRobot = document.getElementById('robot'); //get element robot
+                imgRobot.style.position = 'relative'; //relative position required to move imgRobot object
+                imgRobot.style.left = '0px'; //initiate position for imgRobot
+                imgPixel = document.getElementById('imgPixel');
+            }
+
+            function move() {
+                if (moving == false) {
+                    document.getElementById('button').value = "Stop"; //set button value to Stop
+                    timer = setInterval(function () {
+                        imgRobot.style.left = parseInt(imgRobot.style.left) + 1 + 'px'; //increment 1px per 1 millisecond
+                        imgPixel.innerHTML = + parseInt(imgRobot.style.left) + ' px '  + parseInt(window.innerWidth ) + ' px'; //just to show pixel                   
+                        if (parseInt(imgRobot.style.left) > parseInt(window.innerWidth)) { //if statement can only compare integer thus need to parseInt()
+                            imgRobot.style.left = '-400px'; //reset imgRobot position to -400px out of screen for smooth transition
+                            }//end if (setting border)
+                    }) //end setInterval()
+                    moving = true; //set moving boolean to true
+                } //start button end
+                else if (moving == true) {
+                    document.getElementById('button').value = "Start"; //set button value to Start
+                    clearInterval(timer);//stop setInterval
+                    moving = false; //set moving boolean to false
+                } //stop button end
+            } //end move function
+        </script>
+    </body>
+</html>

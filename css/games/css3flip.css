@@ -1,0 +1,67 @@
+#game{
+    background: #bbbbff;
+    padding: 5px;
+}
+
+/*Define the 3d perspective view and dimension of each card*/
+.card{
+    -webkit-perspective: 3000;
+    width: 80px;
+    height: 120px;
+    margin: 8px;
+}
+
+.face{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+
+    -webkit-backface-visibility:hidden;
+}
+
+.front{
+    background: #ffbbbb;
+    z-index:10;
+}
+
+.back{
+    background: #eaa;
+    -webkit-transform: rotate3d(0,1,0,-180deg);
+    -moz-transform: rotate3d(0,1,0, -180deg);
+    transform: rotate3d(0,1,0, -180deg);
+    z-index: 8;
+}
+
+.card-flipped .front{
+    -webkit-transform: rotate3d(0,1,0,180deg);
+    -moz-transform: rotate3d(0,1,0,180deg);
+    transform: rotate3d(0,1,0,180deg);
+    z-index: 8;
+}
+
+.card-flipped .back{
+    -webkit-transform: rotate3d(0,1,0, 0deg);
+    -moz-transform: rotate3d(0,1,0,0deg);
+    transform: rotate3d(0,1,0,0deg);
+    z-index: 10;
+}
+.cardAK{
+    background: url(../../img/AK.png);
+}
+.cardAQ{
+    background: url(../../img/AQ.png);
+}
+
+/*rotate the applied DOM element 90 degree*/
+.rotateRight{
+    -webkit-transform: rotate3d(0,0,1,90deg);
+}
+
+.moveAndScale{
+    -webkit-transform: translate3d(150px,150px,0) scale3d(1.5, 1.5, 1);
+}

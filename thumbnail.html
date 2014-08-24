@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Test 4</title>
+    </head>
+    <body>
+             <a href="" id="link0"><img id="img0" class="" src="" alt="preview" width="128" height="128"/><br />
+            <a href="http://www.facebook.com" id="link1" onmouseover= "PreviewLink(this)" ><img id ="img1" onmouseover="PreviewImg(this)" src="img/64x64_facebook.png" alt="facebook" width="64" height="64"></a>
+            <a href="http://www.google.com" id="link2" onmouseover= "PreviewLink(this)"><img id = "img2" onmouseover="PreviewImg(this)" src="img/64x64_chrome.png" alt="chrome" width="64" height="64"></a>
+            <a href="http://www.firefox.com" id="link3" onmouseover= "PreviewLink(this)"><img id = "img3" onmouseover="PreviewImg(this)" src="img/64x64_firefox.png" alt="firefox" width="64" height="64"></a>
+            <a href="http://www.windows.com" id="link4" onmouseover= "PreviewLink(this)"><img id = "img4" onmouseover="PreviewImg(this)" src="img/64x64_windows.png" alt="windows" width="64" height="64"></a>
+            <a href="http://www.youtube.com"  id="link5" onmouseover= "PreviewLink(this)"><img id = "img5" onmouseover="PreviewImg(this)" src="img/64x64_youtube.png" alt="youtube" width="64" height="64"></a>
+        <script>
+            var lastImg = "img1"; //set initial thumbnail and preview
+			var lastLink = "link1"; //set initial thumnail link and preview
+            document.getElementById("img0").src = document.getElementById(lastImg).src;
+			document.getElementById("link0").href = document.getElementById(lastLink).href;
+            function PreviewImg(img) {
+                document.getElementById("img0").src = img.src;
+            }
+            function PreviewLink(link) {
+                document.getElementById("link0").href = link.href;
+            }
+        </script>
+    </body>
+</html>
+
